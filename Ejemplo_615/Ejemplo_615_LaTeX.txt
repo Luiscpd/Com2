@@ -1,0 +1,264 @@
+\documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1}
+%
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{gensymb}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[pdftex]{hyperref}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{booktabs}
+%
+\decimalpoint
+%\bibliographystyle{IEEEtran}
+%\bibliography{IEEEabrv,mybibfile}
+%
+%
+\begin{document}
+%Titulo
+\title{Comunicaciones 2: Ejemplo de Clase 6.15}
+\thanks{Escuela de Mecánica Eléctrica}
+
+\author{Luis Carlos Paniagua Davila, 201700435}\email{luiscpd06@gmail.com}
+\affiliation{Escuela de Mecánica Eléctrica , Universidad de San Carlos, Guatemala.
+}
+
+%\collaboration{MUSO Collaboration}%\noaffiliation
+
+\date{\today}%
+
+%Resumen
+\begin{abstract}
+
+
+\end{abstract}
+
+\maketitle{}
+
+    \section{Enunciado del ejemplo}
+        
+        \begin{itemize}
+            \item [A)] ¿Para qué valor de $ \alpha >0 $ la función $ f(x)=\alpha{x}^{-2}u(x- \alpha) $ es una función de densidad de probabilidad? Usa un boceto para ilustrar tu razonamiento y recuerda que un pdf tiene que integrarse a uno. [$u(x)$ es la función escalón unitario.]
+            \item [B)] Encuentre la función de distribución acumulativa correspondiente.
+            \item [C)] Calcular $P(X \geq 10)$.
+        \end{itemize}
+    
+    \section{Inciso A}
+        
+        Se estable que:
+        
+            \begin{equation}
+                \int_{-\infty}^{\infty} f(x) dx =1
+            \end{equation}
+    
+        Por lo tanto
+    
+            \begin{equation}
+                \int_{-\infty}^{\infty} \alpha{x}^{-2}u(x- \alpha) dx =1 \label{escalon}
+            \end{equation}
+    
+        En la ecuación \ref{escalon} se presenta una función escalón gracias al termino $u(x- \alpha)$.
+        
+        \
+        
+        Teniendo las siguientes relaciones: 
+        
+        \begin{equation}
+            u(x- \alpha)= \left\{ \begin{array}{lcc}
+             1 &   si  & x - \alpha \leq 0 \\
+             \\ 0 &  si  & otro \ lugar
+             \end{array}
+             \right.
+        \end{equation}
+
+        \begin{equation}
+            u(x- \alpha)= \left\{ \begin{array}{lcc}
+             1 &   si  & x \leq \alpha \\
+             \\ 0 &  si  & otro \ lugar
+             \end{array}
+             \right.
+        \end{equation}
+        
+        Se determina la siguiente función escalón por medio de la siguiente figura: 
+        
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.20]{Función escalón.png}
+                \caption{Función escalón}
+                \label{FuncEsca}
+                \scriptsize \textbf{Fuente:} Elaboración propia.
+            \end{figure}
+        
+        
+        Modificando la integral tenemos que:
+        
+            \begin{equation}
+                \int_{\alpha}^{\infty} \alpha x^{-2}dx    
+            \end{equation}
+        
+        Resolviendo la integral llegamos a 
+        
+            \begin{equation}
+                \alpha(-x^{-1}) \Big|_{\infty}^{\alpha}
+            \end{equation}
+        
+        Evaluando amos limites se obtiene el siguiente resultado:
+        
+            \begin{equation}
+               = - \alpha \left( \frac{1}{\infty} - \left( \frac{1}{\alpha} \right) \right)
+            \end{equation}
+        
+        Simplificando se obtiene el siguiente resultado:
+        
+            \begin{equation}
+                = \alpha \left( \frac{1}{\alpha} \right) = 1
+            \end{equation}
+
+    \section{Inciso B}
+        
+        Recordando que la función de la distribución es la antiderivada de la función de densidad:
+        
+        \begin{equation}
+            F_{x} (x) = \int_{-\infty}^{x} f(y) dy = \int_{-\infty}^{x} \alpha y^{-2}u(y-\alpha)dy
+        \end{equation}
+        
+        Resolviendo la integral: 
+        
+        \begin{equation*}
+           F_{x} (x) = \alpha \int_{\infty}^{x} 
+        \end{equation*}
+        
+        \begin{equation*}
+           F_{x} (x) = \alpha \left[ -y^{-1} \right] \Big|_{\alpha}^{x} 
+        \end{equation*}        
+        
+        \begin{equation*}
+             F_{x} (x) = - \alpha \left[ \frac{1}{x} - \frac{1}{\infty} \right]
+        \end{equation*}
+        
+         \begin{equation}
+              F_{x} (x) = 1 - \frac{\alpha}{x}
+         \end{equation}
+        
+        
+        \subsection{Propiedades de $F_{x} (x)$}    
+        
+            Evaluando $F_{x}$ en:
+            
+                \begin{equation}
+                    F_{x}(-\infty) = 0 
+                \end{equation}
+            
+                \begin{equation}
+                    F_{x}(\infty) = 1 
+                \end{equation}    
+                
+            Verificando el resultado anterior: 
+            
+                \begin{equation}
+                     F_{x}(-\infty) = 1 - \frac{\alpha}{-\infty} = 1
+                     \label{Propiedad1}
+                \end{equation}
+            
+                \begin{equation}
+                    F_{x}(\infty) = 1 - \frac{\alpha}{\infty} = 1  
+                \end{equation}
+                
+            En la ecuación \ref{Propiedad1} denotamos un error debido a que la función escalón no empieza en infinito, sino en $\alpha$, por lo tanto la función debe evaluarse en alfa quedando de la siguiente manera: 
+            
+                \begin{equation}
+                    F_{x}(-\infty) = 1 - \frac{\alpha}{-\alpha} = 0
+                \end{equation}
+            
+            Evaluando $F_{x}$ en:
+            
+            \begin{equation}
+                F_{x} (x_{1}) < F_{x} (x_{2}) Si  x_{1} < x_{2}
+            \end{equation}
+            
+            Esta relación nos indica que es una función creciente. Gráficamente se puede representar por medio de la siguiente figura:
+            
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[scale = 0.20]{FuncionCreciente.png}
+                    \caption{Función creciente}
+                    \label{FuncEsca}
+                    \scriptsize \textbf{Fuente:} Elaboración propia.
+                \end{figure}            
+            
+            
+            Asignando valores de $alpha$ se puede obtener una comparación y determinar como crece la función.
+            
+                 \begin{figure}[H]
+                    \centering
+                    \includegraphics[scale = 0.20]{ValoresCreciente.png}
+                    \caption{Crecimiento de la función}
+                    \label{FuncEsca}
+                    \scriptsize \textbf{Fuente:} Elaboración propia.
+                \end{figure}             
+
+            La mejor forma de probar una tercera condición es aplicando la derivada de la función de distribución dada por la siguiente ecuación:
+            
+                \begin{equation}
+                f_{x}(x) = \dfrac {\mathrm{d} F}{\mathrm{d} x} = \alpha x^{-2}
+                \end{equation}
+             
+    \section{Inciso C}
+    
+    Para calcular la $P(x \geq 10)$ existen dos formas.
+    
+        \subsection{Forma 1}
+        
+            Asumiendo que $10 > \alpha$ tenemos lo siguiente:
+        
+                \begin{equation}
+                    P(x \geq 10) = \int_{10}^{\infty} \alpha x^{-2} u(x - \alpha) dx    
+                \end{equation}
+                
+                \begin{equation*}
+                     P(x \geq 10) = \int_{10}^{\infty} x^{-2} dx = - \alpha x^{-1}\Big|_{10}^{\infty}     
+                \end{equation*}
+                
+                \begin{equation}
+                     P(x \geq 10) = \frac{\alpha}{10}    
+                \end{equation}
+            
+        \subsection{Forma 2}
+        
+            Recordando que $F_{x}(x) \triangleq P(x \leq X)$ se pueden utilizar probabilidades complementarias.
+            
+                \begin{equation}
+                 P(X \leq x) = 1 - P(X > x)   
+                \end{equation}
+            
+                \begin{equation*}
+                    P(x \leq 10) = 1 - P(x > 10)
+                \end{equation*}
+                
+                \begin{equation*}
+                    P(x > 10) = 1 - P(x \leq 10)
+                \end{equation*}
+                
+                \begin{equation*}
+                    P(x \geq 10) = 1 - F_{x}(10)
+                \end{equation*}
+                
+                \begin{equation*}
+                    P(x \geq 10) = 1 - \left[1 - \frac{\alpha}{10}\right]
+                \end{equation*}
+                
+                \begin{equation}
+                    P(x \geq 10) = \frac{\alpha}{10}
+                \end{equation}
+
+\end{document}
